@@ -9,6 +9,7 @@ import { Category } from './categories/category.entity';
 import { CategoriesModule } from './categories/categories.module';
 import { CategoriesController } from './categories/categories.controller';
 import { CategoriesService } from './categories/categories.service';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { CategoriesService } from './categories/categories.service';
       database: 'test2',
       entities: [User, Category],
       synchronize: true,
-    }), AuthModule, UsersModule, CategoriesModule],
+    }), AuthModule, UsersModule, CategoriesModule, PostsModule],
   controllers: [AppController, CategoriesController],
   providers: [AppService, CategoriesService],
 })
