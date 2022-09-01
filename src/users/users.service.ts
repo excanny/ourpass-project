@@ -33,7 +33,7 @@ export class UsersService {
         const usersData = [{
           userId: 1,
           username: 'john@gmail.com',
-          password: 'john@gmail.com',
+          password: encryptedPassword1,
         },
         {
           userId: 2,
@@ -42,7 +42,7 @@ export class UsersService {
         }
       ];
         const user = await this.usersRepository.save(usersData);
-        //console.log(user[1].password);
+        ///console.log(user[1].password);
     } catch (error) {throw error;}
   }
 }

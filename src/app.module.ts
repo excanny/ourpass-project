@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { Category } from './categories/category.entity';
+import { Post } from './posts/post.entity';
 import { CategoriesModule } from './categories/categories.module';
 import { CategoriesController } from './categories/categories.controller';
 import { CategoriesService } from './categories/categories.service';
@@ -22,7 +23,7 @@ import { PostsController } from './posts/posts.controller';
       username: 'root',
       password: '',
       database: 'test2',
-      entities: [User, Category],
+      entities: [User, Category, Post],
       synchronize: true,
     }), AuthModule, UsersModule, CategoriesModule, PostsModule],
   controllers: [AppController, CategoriesController, PostsController],
