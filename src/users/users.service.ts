@@ -42,7 +42,6 @@ export class UsersService {
         }
       ];
         const user = await this.usersRepository.save(usersData);
-        ///console.log(user[1].password);
     } catch (error) {throw error;}
   }
 }

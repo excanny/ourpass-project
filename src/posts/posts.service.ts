@@ -53,7 +53,6 @@ export class PostsService {
         }
       ];
       const posts = await this.postRepository.save(postsData);
-        //console.log(posts);
     } catch (error) {throw error;}
   }
   

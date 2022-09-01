@@ -43,7 +43,6 @@ export class CategoriesService {
         }
       ];
         const user = await this.categoryRepository.save(categoryData);
-        //console.log(user);
     } catch (error) {throw error;}
   }
 }
