@@ -23,7 +23,7 @@ import { UsersController } from './users/users.controller';
       username: 'root',
       password: '',
       database: 'test2',
-      entities: [User, Category, Post],
+      entities: [__dirname + '/**/*.entity.{js,ts}'],
       synchronize: true,
     }), AuthModule, UsersModule, CategoriesModule, PostsModule],
   controllers: [CategoriesController, PostsController, UsersController],
