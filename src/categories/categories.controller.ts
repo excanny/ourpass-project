@@ -8,12 +8,12 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
-  @Post('create')
+  @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {
     return this.categoriesService.create(createCategoryDto);
   }
 
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.categoriesService.findAll();
@@ -24,10 +24,10 @@ export class CategoriesController {
     return this.categoriesService.findOne(+id);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
-  //   return this.categoriesService.update(+id, updateCategoryDto);
-  // }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
+    return this.categoriesService.update(+id, updateCategoryDto);
+  }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

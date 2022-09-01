@@ -13,6 +13,7 @@ import { CategoriesService } from './categories/categories.service';
 import { PostsModule } from './posts/posts.module';
 import { PostsService } from './posts/posts.service';
 import { PostsController } from './posts/posts.controller';
+import { UsersController } from './users/users.controller';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { PostsController } from './posts/posts.controller';
       entities: [User, Category, Post],
       synchronize: true,
     }), AuthModule, UsersModule, CategoriesModule, PostsModule],
-  controllers: [AppController, CategoriesController, PostsController],
+  controllers: [AppController, CategoriesController, PostsController, UsersController],
   providers: [AppService, CategoriesService, PostsService],
 })
 export class AppModule {}

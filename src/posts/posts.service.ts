@@ -26,12 +26,12 @@ export class PostsService {
     return await this.postRepository.findOneBy({ id });
   }
 
-  // update(id: number, updatePostDto: UpdatePostDto) {
-  //   return `This action updates a #${id} post`;
-  // }
+  async update(id: number, updatePostDto: UpdatePostDto) {
+    return await this.postRepository.update(id, updatePostDto);
+  }
 
   async remove(id: number) {
-    await this.postRepository.delete(id);
+    return await this.postRepository.delete(id);
   }
 
   async onModuleInit() {
@@ -53,7 +53,7 @@ export class PostsService {
         }
       ];
       const posts = await this.postRepository.save(postsData);
-        console.log(posts);
+        //console.log(posts);
     } catch (error) {throw error;}
   }
   
