@@ -17,17 +17,6 @@ export class UsersController {
         return await this.userService.create(userData);
       }
 
-    // /  @UseGuards(LocalAuthGuard)
-    //   @Post('login')
-    //   async login(@Request() req) {
-    //     return this.authService.login(req.user);
-    //   }
-
-    // @Get('/allusers')
-    // async allusers(): Promise<User[]> {
-    //   return await this.userService.findAll();
-    // }
-
     @UseGuards(LocalAuthGuard)
     @Post('login')
     async login(@Request() req) {
@@ -35,8 +24,8 @@ export class UsersController {
     }
 
     ///@UseGuards(JwtAuthGuard)
-    @Get('user-info')
-    getUserInfo(@Request() req) {
-      return req.user
-    }
+    // @Get('user-info')
+    // getUserInfo(@Request() req) {
+    //   return req.user
+    // }
 }
