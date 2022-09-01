@@ -33,5 +33,28 @@ export class PostsService {
   async remove(id: number) {
     await this.postRepository.delete(id);
   }
+
+  async onModuleInit() {
+    try {
+
+        const postsData = [{
+          id: 1,
+          categoryId: 1,
+          title: 'First topic',
+          content: 'This is John\'s post',
+          user: await this.usersRepository.findOneBy({userId:1})
+        },
+        {
+          id: 2,
+          categoryId: 2,
+          title: 'Second Topic',
+          content: 'This is Ken\'s post',
+          user: await this.usersRepository.findOneBy({userId:2}),
+        }
+      ];
+      const posts = await this.postRepository.save(postsData);
+        console.log(posts);
+    } catch (error) {throw error;}
+  }
   
 }
