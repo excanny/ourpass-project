@@ -21,29 +21,28 @@ export class UsersService {
   }
 
   async encryptPassword(password:string) {
-    const salt = await bcrypt.genSalt()
-    return await bcrypt.hash(password, salt)
+    const salt = await bcrypt.genSalt();
+    return await bcrypt.hash(password, salt);
   }
 
   async onModuleInit() {
 
     var encryptedPassword1 =  await this.encryptPassword('john@gmail.com');
-    var encryptedPassword2 =  await this.encryptPassword('ken@gmail.com');
+    var encryptedPassword2 =  await this.encryptPassword("ken@gmail.com");
     try {
         const usersData = [{
-          id: 1,
-          username: 'John',
-          password: encryptedPassword1,
+          userId: 1,
+          username: 'john@gmail.com',
+          password: 'john@gmail.com',
         },
         {
-          id: 2,
-          username: 'Ken',
+          userId: 2,
+          username: 'ken@gmail.com',
           password: encryptedPassword2,
-        
         }
       ];
         const user = await this.usersRepository.save(usersData);
-        //console.log(user);
+        //console.log(user[1].password);
     } catch (error) {throw error;}
   }
 }
