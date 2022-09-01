@@ -10,6 +10,8 @@ import { CategoriesModule } from './categories/categories.module';
 import { CategoriesController } from './categories/categories.controller';
 import { CategoriesService } from './categories/categories.service';
 import { PostsModule } from './posts/posts.module';
+import { PostsService } from './posts/posts.service';
+import { PostsController } from './posts/posts.controller';
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { PostsModule } from './posts/posts.module';
       entities: [User, Category],
       synchronize: true,
     }), AuthModule, UsersModule, CategoriesModule, PostsModule],
-  controllers: [AppController, CategoriesController],
-  providers: [AppService, CategoriesService],
+  controllers: [AppController, CategoriesController, PostsController],
+  providers: [AppService, CategoriesService, PostsService],
 })
 export class AppModule {}
