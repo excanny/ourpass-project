@@ -13,19 +13,23 @@ import { PostsModule } from './posts/posts.module';
 import { PostsService } from './posts/posts.service';
 import { PostsController } from './posts/posts.controller';
 import { UsersController } from './users/users.controller';
+import { typeOrmAsyncConfig } from './config/typeorm.config';
+import { ConfigModule} from '@nestjs/config';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'test2',
-      entities: [__dirname + '/**/*.entity.{js,ts}'],
-      synchronize: true,
-    }), AuthModule, UsersModule, CategoriesModule, PostsModule],
+  // imports: [
+  //   TypeOrmModule.forRoot({
+  //     type: 'mysql',
+  //     host: 'localhost',
+  //     port: 3306,
+  //     username: 'root',
+  //     password: '',
+  //     database: 'test2',
+  //     entities: [__dirname + '/**/*.entity.{js,ts}'],
+  //     synchronize: true,
+  //   }), AuthModule, UsersModule, CategoriesModule, PostsModule],
+  imports: [TypeOrmModule.forRootAsync(typeOrmAsyncConfig), ConfigModule.forRoot({isGlobal: true}),
+    AuthModule, UsersModule, CategoriesModule, PostsModule],
   controllers: [CategoriesController, PostsController, UsersController],
   providers: [AppService, CategoriesService, PostsService],
 })
