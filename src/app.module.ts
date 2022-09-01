@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -31,6 +30,6 @@ import { ConfigModule} from '@nestjs/config';
   imports: [TypeOrmModule.forRootAsync(typeOrmAsyncConfig), ConfigModule.forRoot({isGlobal: true}),
     AuthModule, UsersModule, CategoriesModule, PostsModule],
   controllers: [CategoriesController, PostsController, UsersController],
-  providers: [AppService, CategoriesService, PostsService],
+  providers: [CategoriesService, PostsService],
 })
 export class AppModule {}
